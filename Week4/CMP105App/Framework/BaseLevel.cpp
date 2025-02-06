@@ -20,4 +20,4 @@ void BaseLevel::beginDraw()
 void BaseLevel::endDraw()
 {
 	window->display();
-}
+	}
