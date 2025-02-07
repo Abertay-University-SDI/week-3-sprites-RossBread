@@ -7,7 +7,9 @@ public:
 	Enemy();
 	~Enemy();
 
-	void update(float dt);
+	void update(float dt) override;
+
+	sf::Texture goomba;
 
 protected:
 	// window component	

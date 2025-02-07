@@ -8,4 +8,7 @@ public:
 	~Player();
 
 	void handleInput(float dt);
+
+	sf::Texture mushroom;
+	Input In;
 };

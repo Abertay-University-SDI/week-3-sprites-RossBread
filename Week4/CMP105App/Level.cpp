@@ -6,25 +6,21 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	input = in;
 
 	// initialise game objects
-	texture.loadFromFile("gfx/Mushroom.png");
-
-	testSprite.setTexture(&texture);
-	testSprite.setSize(sf::Vector2f(100, 100));
-	testSprite.setPosition(100, 100);
 
 	// player
+
 	playerObject.setInput(input);
-	playerTexture.loadFromFile("gfx/Mushroom.png");
-	playerObject.setTexture(&playerTexture);
-	playerObject.setSize(sf::Vector2f(100, 100));
-	playerObject.setPosition(200, 300);
 
+	// enemies
 	enemyObject.setWindow(window);
-	enemyTexture.loadFromFile("gfx/goomba.png");
-	enemyObject.setTexture(&enemyTexture);
-	enemyObject.setSize(sf::Vector2f(100, 100));
-	enemyObject.setPosition(500, 900);
 
+	enemyObject2.setWindow(window);
+	enemyTexture2.loadFromFile("gfx/nidoran.jpg");
+	enemyObject2.setTexture(&enemyTexture2);
+	enemyObject2.setPosition(800, 400);
+
+	background.setWindow(hwnd);
+	background.setInput(in);
 }
 
 Level::~Level()
@@ -42,12 +38,15 @@ void Level::handleInput(float dt)
 	}
 
 	playerObject.handleInput(dt);
+	background.handleInput(dt);
 }
 
 // Update game objects
 void Level::update(float dt)
 {
 	enemyObject.update(dt);
+	enemyObject2.update(dt);
+
 }
 
 // Render level
@@ -55,9 +54,10 @@ void Level::render()
 {
 	beginDraw();
 
-	window->draw(testSprite);
+	window->draw(background);
 	window->draw(playerObject);
 	window->draw(enemyObject);
+	window->draw(enemyObject2);
 
 	endDraw();
 }

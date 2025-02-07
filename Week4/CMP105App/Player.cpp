@@ -4,7 +4,11 @@
 // Constructor
 Player::Player()
 {
-	
+
+	mushroom.loadFromFile("gfx/Mushroom.png");
+	setTexture(&mushroom);
+	setSize(sf::Vector2f(100, 100));
+	setPosition(200, 300);
 }
 
 // Destructor

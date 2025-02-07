@@ -6,6 +6,7 @@
 #include "Framework/GameObject.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Background.h"
 #include <string.h>
 #include <iostream>
 
@@ -21,12 +22,12 @@ public:
 
 private:
 	// Level objects
-	GameObject testSprite;
 	Player playerObject;
-	sf::Texture texture;
-	sf::Texture playerTexture;
+
 
 	Enemy enemyObject;
-	sf::Texture enemyTexture;
+	Enemy enemyObject2;
+	sf::Texture enemyTexture2;
 
+	Background background;
 };

@@ -4,6 +4,10 @@ Enemy::Enemy()
 {
 	window = nullptr;
 	setVelocity(250.f, 300.f);
+	goomba.loadFromFile("gfx/Goomba.png");
+	setTexture(&goomba);
+	setSize(sf::Vector2f(100, 100));
+	setPosition(600, 500);
 }
 
 Enemy::~Enemy()
@@ -12,8 +16,10 @@ Enemy::~Enemy()
 
 void Enemy::update(float dt)
 {
+	move(velocity * dt);
+
 	// right wall
-	if (getPosition().x >= window->getSize().x)
+	if (getPosition().x + getSize().x >= window->getSize().x)
 	{
 		setPosition(window->getSize().x - getSize().x, getPosition().y);
 		velocity.x *= -1;
@@ -34,7 +40,7 @@ void Enemy::update(float dt)
 	}
 
 	// bottom wall
-	if (getPosition().y >= window->getSize().y)
+	if (getPosition().y + getSize().y >= window->getSize().y)
 	{
 		setPosition( getPosition().x, window->getSize().y - getSize().y);
 		velocity.y *= -1;
