@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Background.h"
+#include "Cursor.h"
 #include <string.h>
 #include <iostream>
 
@@ -30,4 +31,10 @@ private:
 	sf::Texture enemyTexture2;
 
 	Background background;
+
+	Cursor cursorObject;
+
+	// task 6 i promise
+	Enemy jcoleMeal;
+	sf::Texture jcoleTexture;
 };

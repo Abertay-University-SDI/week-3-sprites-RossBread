@@ -21,7 +21,20 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 
 	background.setWindow(hwnd);
 	background.setInput(in);
+
+	cursorObject.setInput(input);
+
+
+	jcoleTexture.loadFromFile("gfx/jcolemeal.jpg");
+	jcoleMeal.setTexture(&jcoleTexture);
+	jcoleMeal.setSize(sf::Vector2f(225, 225));
+	jcoleMeal.setPosition(560, 275);
+	jcoleMeal.setWindow(window);
+
+
+	window->setMouseCursorVisible(false);
 }
+
 
 Level::~Level()
 {
@@ -47,6 +60,8 @@ void Level::update(float dt)
 	enemyObject.update(dt);
 	enemyObject2.update(dt);
 
+	cursorObject.update(dt);
+	jcoleMeal.update(dt);
 }
 
 // Render level
@@ -59,5 +74,8 @@ void Level::render()
 	window->draw(enemyObject);
 	window->draw(enemyObject2);
 
+	window->draw(jcoleMeal);
+
+	window->draw(cursorObject);
 	endDraw();
 }
